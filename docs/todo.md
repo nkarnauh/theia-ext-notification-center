@@ -4,7 +4,7 @@
 
 Как трекать: `[ ]` → `[x]`. Этап закрыт, когда отмечен его блок **Готово**.
 
-**Сейчас:** этап 1.
+**Сейчас:** этап 2.
 
 ## Этап 0. Каркас расширения
 
@@ -18,10 +18,10 @@
 
 ## Этап 1. Shared-контракт
 
-- [ ] `notification-types.ts`: `NotificationSeverity`, `NotificationAction`, `Notification`, `NotificationInput`
-- [ ] `notification-protocol.ts`: path `/services/notification-center`, Symbol, `NotificationService` / `NotificationClient`
-- [ ] Реэкспорт из `index.ts`
-- [ ] **Готово:** `shared` без импортов frontend/backend, типы как в §5 архитектуры
+- [x] `notification-types.ts`: `NotificationSeverity`, `NotificationAction`, `Notification`, `NotificationInput`
+- [x] `notification-protocol.ts`: path `/services/notification-center`, Symbol, `NotificationService` / `NotificationClient`
+- [x] Реэкспорт из `index.ts`
+- [x] **Готово:** `shared` без импортов frontend/backend, типы как в §5 архитектуры
 
 ## Этап 2. Backend: store и сервис
 

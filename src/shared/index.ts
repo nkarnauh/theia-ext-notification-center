@@ -1,1 +1,2 @@
-export {};
+export * from './notification-types';
+export * from './notification-protocol';
