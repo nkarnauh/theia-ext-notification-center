@@ -4,7 +4,7 @@
 
 Как трекать: `[ ]` → `[x]`. Этап закрыт, когда отмечен его блок **Готово**.
 
-**Сейчас:** этап 4.
+**Сейчас:** этап 5.
 
 ## Этап 0. Каркас расширения
 
@@ -38,11 +38,11 @@
 
 ## Этап 4. Frontend: RPC, toast, демо-push
 
-- [ ] RPC-прокси + `NotificationClientImpl` (Emitter, `getHistory` на старте, `DisposableCollection`)
-- [ ] Toast overlay: `actions[]`, 5 с для info/warning, error до закрытия, `clearTimeout` в dispose
-- [ ] Команда `notification-center.pushSample`
-- [ ] Frontend DI-модуль
-- [ ] **Готово:** демо-push показывает toast; error не гаснет сам; action → `actionInvoked`
+- [x] RPC-прокси + `NotificationClientImpl` (Emitter, `getHistory` на старте, `DisposableCollection`)
+- [x] Toast overlay: `actions[]`, 5 с для info/warning, error до закрытия, `clearTimeout` в dispose
+- [x] Команда `notification-center.pushSample`
+- [x] Frontend DI-модуль
+- [x] **Готово:** демо-push показывает toast; error не гаснет сам; action → `actionInvoked`
 
 ## Этап 5. Панель истории
 

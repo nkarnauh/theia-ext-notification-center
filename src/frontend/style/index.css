@@ -1,0 +1,72 @@
+.notification-center-toasts {
+    position: fixed;
+    top: 48px;
+    right: 16px;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 360px;
+    pointer-events: none;
+}
+
+.notification-center-toast {
+    pointer-events: auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px 12px;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    background: var(--theia-notifications-background, var(--theia-editor-background));
+    color: var(--theia-notifications-foreground, var(--theia-foreground));
+    border-left: 4px solid var(--theia-notificationsInfoIcon-foreground, #3794ff);
+}
+
+.notification-center-toast-warning {
+    border-left-color: var(--theia-notificationsWarningIcon-foreground, #cca700);
+}
+
+.notification-center-toast-error {
+    border-left-color: var(--theia-notificationsErrorIcon-foreground, #f14c4c);
+}
+
+.notification-center-toast-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.notification-center-toast-title {
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.notification-center-toast-message {
+    opacity: 0.9;
+    white-space: pre-wrap;
+}
+
+.notification-center-toast-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.notification-center-toast-action,
+.notification-center-toast-close {
+    cursor: pointer;
+    background: transparent;
+    color: inherit;
+    border: 1px solid var(--theia-button-border, currentColor);
+    border-radius: 3px;
+    padding: 2px 8px;
+}
+
+.notification-center-toast-close {
+    border: none;
+    font-size: 16px;
+    line-height: 1;
+    padding: 0 4px;
+    opacity: 0.7;
+}

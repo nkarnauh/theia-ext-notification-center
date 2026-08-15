@@ -12,7 +12,7 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "target": "ES2022",
-    "jsx": "react",
+    "jsx": "react-jsx",
     "lib": [
       "ES2022",
       "dom"
