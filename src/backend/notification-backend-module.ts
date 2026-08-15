@@ -1,4 +1,5 @@
 import { ConnectionHandler, RpcConnectionHandler } from '@theia/core/lib/common/messaging';
+import { BackendApplicationContribution } from '@theia/core/lib/node';
 import { ContainerModule } from '@theia/core/shared/inversify';
 import {
     NOTIFICATION_SERVICE_PATH,
@@ -7,9 +8,13 @@ import {
 } from '../shared';
 import { NotificationServiceImpl } from './notification-service';
 import { NotificationStore } from './notification-store';
+import { PersistedNotificationStore } from './persisted-notification-store';
 
 export default new ContainerModule(bind => {
-    bind(NotificationStore).toSelf().inSingletonScope();
+    bind(PersistedNotificationStore).toSelf().inSingletonScope();
+    bind(NotificationStore).toService(PersistedNotificationStore);
+    bind(BackendApplicationContribution).toService(PersistedNotificationStore);
+
     bind(NotificationServiceImpl).toSelf().inSingletonScope();
     bind(NotificationService).toService(NotificationServiceImpl);
 

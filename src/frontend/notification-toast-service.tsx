@@ -54,7 +54,6 @@ export class NotificationToastService implements FrontendApplicationContribution
 
     protected handleAction = (notificationId: string, actionId: string): void => {
         void this.notificationService.actionInvoked(notificationId, actionId);
-        this.hide(notificationId);
     };
 
     protected render(): void {

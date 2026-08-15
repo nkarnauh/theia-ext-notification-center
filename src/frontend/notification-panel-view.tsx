@@ -1,6 +1,7 @@
 import { useEffect, useState, type FC } from '@theia/core/shared/react';
 import { Notification, NotificationService, NotificationSeverity } from '../shared';
 import { NotificationClientImpl } from './notification-client';
+import { groupNotifications, NOTIFICATION_DATE_GROUP_LABELS } from './notification-date-groups';
 
 export const NOTIFICATION_SEVERITIES: NotificationSeverity[] = ['info', 'warning', 'error'];
 
@@ -25,6 +26,7 @@ export const NotificationPanelView: FC<NotificationPanelViewProps> = ({ client, 
     }, [client]);
 
     const visibleItems = items.filter(item => visibleSeverities.has(item.severity)).slice().reverse();
+    const groupedItems = groupNotifications(visibleItems);
 
     const toggleSeverity = (severity: NotificationSeverity): void => {
         const next = new Set(visibleSeverities);
@@ -64,16 +66,26 @@ export const NotificationPanelView: FC<NotificationPanelViewProps> = ({ client, 
         <div className="notification-center-panel-list">
             {visibleItems.length === 0
                 ? <div className="notification-center-panel-empty">No notifications</div>
-                : visibleItems.map(item =>
-                    <NotificationPanelItem
-                        key={item.id}
-                        notification={item}
-                        expanded={expandedId === item.id}
-                        onToggleExpand={id => setExpandedId(current => current === id ? undefined : id)}
-                        onAction={(notificationId, actionId) => {
-                            void notificationService.actionInvoked(notificationId, actionId);
-                        }}
-                    />
+                : groupedItems.map(section =>
+                    <div key={section.group} className="notification-center-panel-group-block">
+                        <div
+                            className="notification-center-panel-group"
+                            data-group={section.group}
+                        >
+                            {NOTIFICATION_DATE_GROUP_LABELS[section.group]}
+                        </div>
+                        {section.items.map(item =>
+                            <NotificationPanelItem
+                                key={item.id}
+                                notification={item}
+                                expanded={expandedId === item.id}
+                                onToggleExpand={id => setExpandedId(current => current === id ? undefined : id)}
+                                onAction={(notificationId, actionId) => {
+                                    void notificationService.actionInvoked(notificationId, actionId);
+                                }}
+                            />
+                        )}
+                    </div>
                 )}
         </div>
     </div>;

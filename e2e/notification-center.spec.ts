@@ -110,4 +110,25 @@ test.describe('Notification Center', () => {
         await panel.clearAll();
         await expect(panel.items()).toHaveCount(0);
     });
+
+    test('groups a new notification under Сегодня', async () => {
+        await runCommand('Push Sample Notification');
+        await panel.waitForItem('info');
+        await expect(panel.groupHeader('today')).toBeVisible();
+        await expect(panel.groupHeader('today')).toHaveText('Сегодня');
+        await expect(panel.groupHeader('yesterday')).toHaveCount(0);
+        await expect(panel.groupHeader('earlier')).toHaveCount(0);
+    });
+
+    test('history is restored after reload', async () => {
+        await runCommand('Push Sample Notification');
+        await panel.waitForItem('info');
+        await app.page.reload();
+        await app.waitForShellAndInitialized();
+        await acceptWorkspaceTrust();
+        panel = await app.openView(NotificationPanel);
+        toast = new NotificationToast(app);
+        await panel.waitForItem('info');
+        await expect(panel.groupHeader('today')).toBeVisible();
+    });
 });

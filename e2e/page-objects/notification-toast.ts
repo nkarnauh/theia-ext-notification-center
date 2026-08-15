@@ -31,8 +31,12 @@ export class NotificationToast extends TheiaPageObject {
 
     async dismissAll(): Promise<void> {
         const closeButtons = this.page.locator('.notification-center-toast-close');
-        while (await closeButtons.count() > 0) {
-            await closeButtons.first().click();
+        if (await closeButtons.count() === 0) {
+            return;
         }
+        await closeButtons.evaluateAll(buttons => {
+            buttons.forEach(button => (button as HTMLButtonElement).click());
+        });
+        await expect(this.locator()).toHaveCount(0);
     }
 }

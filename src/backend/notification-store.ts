@@ -5,7 +5,7 @@ import { Notification } from '../shared';
 export class NotificationStore {
     static readonly LIMIT = 100;
 
-    private readonly items: Notification[] = [];
+    protected readonly items: Notification[] = [];
 
     getAll(): Notification[] {
         return [...this.items];

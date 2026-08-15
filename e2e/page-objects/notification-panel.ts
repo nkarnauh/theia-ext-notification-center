@@ -18,6 +18,10 @@ export class NotificationPanel extends TheiaView {
         return this.page.locator(`#notification-center-panel .notification-center-panel-item[data-severity="${severity}"]`);
     }
 
+    groupHeader(group: string): Locator {
+        return this.page.locator(`#notification-center-panel .notification-center-panel-group[data-group="${group}"]`);
+    }
+
     async itemCount(): Promise<number> {
         await this.activate();
         return this.items().count();

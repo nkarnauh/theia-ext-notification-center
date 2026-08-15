@@ -21,6 +21,40 @@
     background: var(--theia-notifications-background, var(--theia-editor-background));
     color: var(--theia-notifications-foreground, var(--theia-foreground));
     border-left: 4px solid var(--theia-notificationsInfoIcon-foreground, #3794ff);
+    animation: notification-center-toast-in 180ms ease-out;
+}
+
+.notification-center-toast-exit {
+    animation: notification-center-toast-out 180ms ease-in forwards;
+}
+
+@keyframes notification-center-toast-in {
+    from {
+        opacity: 0;
+        transform: translateX(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes notification-center-toast-out {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(16px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .notification-center-toast,
+    .notification-center-toast-exit {
+        animation: none;
+    }
 }
 
 .notification-center-toast-warning {
@@ -109,6 +143,15 @@
 
 .notification-center-panel-empty {
     padding: 16px;
+    opacity: 0.7;
+}
+
+.notification-center-panel-group {
+    padding: 8px 8px 4px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
     opacity: 0.7;
 }
 
