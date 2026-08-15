@@ -70,3 +70,113 @@
     padding: 0 4px;
     opacity: 0.7;
 }
+
+.notification-center-panel {
+    height: 100%;
+}
+
+.notification-center-panel-view {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.notification-center-panel-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    border-bottom: 1px solid var(--theia-panelTitle-border, var(--theia-widget-border));
+}
+
+.notification-center-panel-filter {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    text-transform: capitalize;
+}
+
+.notification-center-panel-clear {
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.notification-center-panel-list {
+    flex: 1;
+    overflow: auto;
+}
+
+.notification-center-panel-empty {
+    padding: 16px;
+    opacity: 0.7;
+}
+
+.notification-center-panel-item {
+    display: flex;
+    gap: 8px;
+    padding: 8px;
+    border-bottom: 1px solid var(--theia-widget-border, rgba(128, 128, 128, 0.2));
+}
+
+.notification-center-panel-item[data-severity] {
+    cursor: default;
+}
+
+.notification-center-panel-item-clickable,
+.notification-center-panel-item-expanded {
+    cursor: pointer;
+}
+
+.notification-center-panel-icon {
+    margin-top: 2px;
+}
+
+.notification-center-panel-item[data-severity='info'] .notification-center-panel-icon {
+    color: var(--theia-notificationsInfoIcon-foreground, #3794ff);
+}
+
+.notification-center-panel-item[data-severity='warning'] .notification-center-panel-icon {
+    color: var(--theia-notificationsWarningIcon-foreground, #cca700);
+}
+
+.notification-center-panel-item[data-severity='error'] .notification-center-panel-icon {
+    color: var(--theia-notificationsErrorIcon-foreground, #f14c4c);
+}
+
+.notification-center-panel-item-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.notification-center-panel-item-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.notification-center-panel-item-title {
+    font-weight: 600;
+}
+
+.notification-center-panel-item-time {
+    opacity: 0.7;
+    font-variant-numeric: tabular-nums;
+}
+
+.notification-center-panel-item-message {
+    margin-top: 2px;
+    opacity: 0.9;
+}
+
+.notification-center-panel-item-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.notification-center-panel-action {
+    cursor: pointer;
+}
+

@@ -1,5 +1,10 @@
 import { CommandContribution } from '@theia/core';
-import { FrontendApplicationContribution, WebSocketConnectionProvider } from '@theia/core/lib/browser';
+import {
+    bindViewContribution,
+    FrontendApplicationContribution,
+    WebSocketConnectionProvider,
+    WidgetFactory
+} from '@theia/core/lib/browser';
 import { ContainerModule } from '@theia/core/shared/inversify';
 import {
     NOTIFICATION_SERVICE_PATH,
@@ -8,6 +13,8 @@ import {
 } from '../shared';
 import { NotificationClientImpl } from './notification-client';
 import { NotificationFrontendContribution } from './notification-frontend-contribution';
+import { NotificationPanelContribution } from './notification-panel-contribution';
+import { NotificationPanelWidget } from './notification-panel-widget';
 import { NotificationToastService } from './notification-toast-service';
 import '../../src/frontend/style/index.css';
 
@@ -30,4 +37,12 @@ export default new ContainerModule(bind => {
     bind(NotificationFrontendContribution).toSelf().inSingletonScope();
     bind(CommandContribution).toService(NotificationFrontendContribution);
     bind(FrontendApplicationContribution).toService(NotificationFrontendContribution);
+
+    bind(NotificationPanelWidget).toSelf();
+    bind(WidgetFactory).toDynamicValue(ctx => ({
+        id: NotificationPanelWidget.ID,
+        createWidget: () => ctx.container.get(NotificationPanelWidget)
+    })).inSingletonScope();
+    bindViewContribution(bind, NotificationPanelContribution);
+    bind(FrontendApplicationContribution).toService(NotificationPanelContribution);
 });

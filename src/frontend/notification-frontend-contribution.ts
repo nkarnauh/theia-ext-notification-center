@@ -16,6 +16,14 @@ export const NotificationCenterCommands = {
         id: 'notification-center.pushSampleError',
         label: 'Push Sample Error Notification',
         category: NOTIFICATION_CENTER_CATEGORY
+    } as Command,
+    TOGGLE_PANEL: {
+        id: 'notification-center.togglePanel'
+    } as Command,
+    CLEAR_ALL: {
+        id: 'notification-center.clearAll',
+        label: 'Clear All Notifications',
+        category: NOTIFICATION_CENTER_CATEGORY
     } as Command
 };
 
