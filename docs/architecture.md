@@ -32,7 +32,7 @@ Theia-расширение: backend публикует типизированн�
 | Unit-тесты | Jest, `*.spec.ts` | store / service в `backend/` |
 | E2E | Playwright + `@theia/playwright` | toast, панель, фильтры, RPC round-trip |
 | Линт | ESLint (конфиг в духе Theia) | все `.ts` / `.tsx` |
-| CI/CD | GitHub Actions | сборка, тесты, GitHub Releases |
+| CI/CD | GitHub Actions | lint, Jest, Playwright e2e, GitHub Releases |
 
 Правила стека:
 
@@ -412,6 +412,8 @@ Page objects:
 
 Команда демо-push нужна именно тестам и ручной проверке: иначе e2e нечем инициировать уведомление.
 
+В CI те же сценарии гоняет job `e2e` после сборки `browser-app/` (Playwright поднимает хост сам).
+
 Плюсы, не блокирующие v1:
 
 | Плюс | Куда класть |
@@ -430,10 +432,10 @@ Page objects:
 
 | Workflow | Триггер | Что делает |
 |---|---|---|
-| `ci.yml` | pull request и `push` в `main` | `npm ci`, lint, `compile`, Jest |
-| `release.yml` | тег `v*` (например `v1.0.0`) | то же + `npm pack`, `gh release create` с `.tgz` |
+| `ci.yml` | pull request и `push` в `main` | job `unit`: lint, `compile`, Jest; job `e2e`: Chromium, `build:browser`, `test:e2e` |
+| `release.yml` | тег `v*` (например `v1.0.0`) | те же job'ы + `npm pack`, `gh release create` с `.tgz` |
 
-E2E в CI не обязательны на каждом PR: нужен запущенный Theia-хост и браузер. Их имеет смысл гонять на `main` или вручную перед тегом.
+E2E на каждом PR обязательны. Хост собирается из `browser-app/` (в npm-пакет расширения не входит). Job `e2e` ставит Chromium (`playwright install --with-deps`), гоняет тесты с `workers: 1`; при падении выкладывает `test-results/`. `CI=true` в Actions уже есть — Playwright не переиспользует чужой сервер и делает один retry.
 
 Версия в `package.json` совпадает с тегом без префикса `v`. Tarball в релизе: `theia-ext-notification-center-<version>.tgz`.
 

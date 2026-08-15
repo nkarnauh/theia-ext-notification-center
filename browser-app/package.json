@@ -28,9 +28,12 @@
   "theia": {
     "target": "browser",
     "frontend": {
-      "config": {
-        "applicationName": "Notification Center"
-      }
+            "config": {
+                "applicationName": "Notification Center",
+                "preferences": {
+                    "security.workspace.trust.enabled": false
+                }
+            }
     }
   }
 }

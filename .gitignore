@@ -159,3 +159,8 @@ browser-app/esbuild.mjs
 browser-app/esbuild.config.mjs
 .browser_modules/
 browser-app/gen-esbuild*.mjs
+
+# Playwright
+test-results/
+playwright-report/
+playwright/.cache/

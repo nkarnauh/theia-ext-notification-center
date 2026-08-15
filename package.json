@@ -1,6 +1,6 @@
 {
   "name": "theia-ext-notification-center",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Theia extension: typed notifications, toast overlay, and history panel",
   "keywords": [
     "theia-extension"
@@ -21,6 +21,8 @@
     "@theia/core": "1.74.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@theia/playwright": "^1.74.1",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.13.10",
     "@types/react": "^18.3.18",
@@ -40,6 +42,8 @@
     "watch": "tsc -w",
     "lint": "eslint src --ext .ts,.tsx",
     "test": "jest --passWithNoTests",
+    "test:e2e": "playwright test",
+    "playwright:install": "playwright install chromium",
     "build:browser": "npm run compile && npm --prefix browser-app run bundle",
     "start:browser": "npm --prefix browser-app start"
   },

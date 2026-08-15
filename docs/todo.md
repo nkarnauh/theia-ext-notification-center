@@ -4,7 +4,7 @@
 
 Как трекать: `[ ]` → `[x]`. Этап закрыт, когда отмечен его блок **Готово**.
 
-**Сейчас:** этап 6.
+**Сейчас:** этап 7 (плюсы, по желанию) или этап 8 (CI/CD).
 
 ## Этап 0. Каркас расширения
 
@@ -56,15 +56,15 @@
 
 ## Этап 6. E2E (Playwright) — закрывает v1
 
-- [ ] Playwright + `@theia/playwright`
-- [ ] Page object `NotificationToast`
-- [ ] Page object `NotificationPanel`
-- [ ] Сценарий: info → toast 5 с → запись в панели
-- [ ] Сценарий: error → toast до крестика
-- [ ] Сценарий: клик по action
-- [ ] Сценарий: фильтр severity
-- [ ] Сценарий: «Очистить все»
-- [ ] **Готово:** e2e зелёные на локальном хосте
+- [x] Playwright + `@theia/playwright`
+- [x] Page object `NotificationToast`
+- [x] Page object `NotificationPanel`
+- [x] Сценарий: info → toast 5 с → запись в панели
+- [x] Сценарий: error → toast до крестика
+- [x] Сценарий: клик по action
+- [x] Сценарий: фильтр severity
+- [x] Сценарий: «Очистить все»
+- [x] **Готово:** e2e зелёные на локальном хосте
 
 ## Этап 7. Плюсы (после v1)
 
@@ -77,9 +77,11 @@
 
 ## Этап 8. CI/CD и GitHub Releases
 
-- [ ] `.github/workflows/ci.yml`: PR и `main` → lint, compile, Jest, Node 22
-- [ ] `.github/workflows/release.yml`: тег `v*` → pack + GitHub Release с `.tgz`
+- [ ] `.github/workflows/ci.yml`: PR и `main`, Node 22, job `unit` (lint, compile, Jest)
+- [ ] Тот же workflow: job `e2e` (`playwright install --with-deps chromium`, `build:browser`, `test:e2e`)
+- [ ] Артефакт `test-results/` при падении e2e
+- [ ] `.github/workflows/release.yml`: тег `v*` → `unit` + `e2e`, затем pack + GitHub Release с `.tgz`
 - [ ] `contents: write` только у release-job
 - [ ] Версия тега `vX.Y.Z` совпадает с `package.json`
 - [ ] В `readme.md`: ссылка на Releases и установка tarball
-- [ ] **Готово:** CI зелёный на PR; тег создаёт скачиваемый Release
+- [ ] **Готово:** CI зелёный на PR (unit и e2e); тег создаёт скачиваемый Release

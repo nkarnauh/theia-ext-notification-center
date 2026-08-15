@@ -98,17 +98,19 @@ v1 — обязательные требования. Плюсы — после 
 
 ## Этап 8. CI/CD и GitHub Releases
 
-**Цель:** на каждый PR проверять сборку; по тегу выкладывать скачиваемый пакет расширения.
+**Цель:** на каждый PR проверять сборку и пользовательские сценарии; по тегу выкладывать скачиваемый пакет расширения.
 
-- `.github/workflows/ci.yml`: `pull_request` и `push` в `main` → `npm ci`, lint, compile, Jest. Node 22.
-- `.github/workflows/release.yml`: тег `v*` → те же проверки, `npm pack`, GitHub Release с артефактом `.tgz`.
+- `.github/workflows/ci.yml`: `pull_request` и `push` в `main`, Node 22, два job'а:
+  - `unit`: `npm ci`, lint, compile, Jest.
+  - `e2e`: `npm ci`, `npx playwright install --with-deps chromium`, `npm run build:browser`, `npm run test:e2e`. Playwright сам поднимает хост (`webServer`, `reuseExistingServer: false` при `CI=true`), `workers: 1`. При падении — артефакт `test-results/` (скриншоты).
+- `.github/workflows/release.yml`: тег `v*` → те же `unit` и `e2e`, затем `npm pack`, GitHub Release с `.tgz`.
 - Права `contents: write` только у release-job (создание Release через `GITHUB_TOKEN`).
 - Версия: тег `v1.2.3` ↔ `"version": "1.2.3"` в `package.json`. Перед тегом версию bumpать вручную или скриптом.
 - В `readme.md` — ссылка на Releases и как поставить tarball в Theia-приложение (`npm install путь/к/theia-ext-notification-center-1.2.3.tgz`).
 
-E2E в GitHub Actions на этом этапе не обязательны (нужен хост Theia). Достаточно lint + compile + Jest; Playwright — по желанию отдельным job на `main`.
+`browser-app/` в релизный tarball не входит, но в репозитории нужен: без него e2e в CI не собрать.
 
-**Готово когда:** PR показывает зелёный CI; `git tag v0.1.0 && git push --tags` создаёт Release, с которого качается `.tgz`.
+**Готово когда:** PR зелёный по `unit` и `e2e`; `git tag v0.1.0 && git push --tags` создаёт Release, с которого качается `.tgz`.
 
 ## Зависимости этапов
 
@@ -118,7 +120,7 @@ E2E в GitHub Actions на этом этапе не обязательны (ну
 ```
 
 Этап 3 можно делать параллельно с началом 4, но не раньше готового сервиса из 2.  
-Этап 8 опирается на каркас и Jest; workflow можно набросать раньше, но Release имеет смысл, когда есть собираемый пакет после этапа 2+.
+Этап 8 опирается на каркас, Jest и e2e из этапа 6; workflow можно набросать раньше, но Release имеет смысл, когда есть собираемый пакет после этапа 2+.
 
 ## Вне скоупа v1
 

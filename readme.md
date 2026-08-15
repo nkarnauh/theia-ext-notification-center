@@ -32,6 +32,16 @@ npm run start:browser
 
 Хост: http://localhost:3000. `browser-app/` — локальное Theia-приложение, в релиз не входит.
 
+E2E (Playwright, нужен собранный хост):
+
+```bash
+npm run playwright:install
+npm run build:browser
+npm run test:e2e
+```
+
+`test:e2e` сам поднимает хост на http://localhost:3000, если он ещё не запущен.
+
 ## Установка
 
 Готовые сборки появятся в [GitHub Releases](https://github.com/nkarnauh/theia-ext-notification-center/releases) после этапа CI/CD: tarball `.tgz`, его ставят в Theia-приложение как npm-зависимость.
