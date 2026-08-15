@@ -4,7 +4,7 @@
 
 Как трекать: `[ ]` → `[x]`. Этап закрыт, когда отмечен его блок **Готово**.
 
-**Сейчас:** этап 3.
+**Сейчас:** этап 4.
 
 ## Этап 0. Каркас расширения
 
@@ -32,9 +32,9 @@
 
 ## Этап 3. Unit-тесты (Jest)
 
-- [ ] `notification-store.spec.ts`: порядок, вытеснение 101-й, `clear`
-- [ ] `notification-service.spec.ts`: `push` → store + client, `id`/`timestamp`, `getHistory`
-- [ ] **Готово:** `npm test` зелёный
+- [x] `notification-store.spec.ts`: порядок, вытеснение 101-й, `clear`
+- [x] `notification-service.spec.ts`: `push` → store + client, `id`/`timestamp`, `getHistory`
+- [x] **Готово:** `npm test` зелёный
 
 ## Этап 4. Frontend: RPC, toast, демо-push
 
