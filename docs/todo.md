@@ -4,7 +4,7 @@
 
 Как трекать: `[ ]` → `[x]`. Этап закрыт, когда отмечен его блок **Готово**.
 
-**Сейчас:** этап 2.
+**Сейчас:** этап 3.
 
 ## Этап 0. Каркас расширения
 
@@ -25,10 +25,10 @@
 
 ## Этап 2. Backend: store и сервис
 
-- [ ] `NotificationStore`: FIFO, лимит 100, `getAll` / `push` / `clear`
-- [ ] `NotificationServiceImpl`: `id` + `timestamp`, `onNotification`, `getHistory`, `clearHistory`, `actionInvoked`, `setClient` / `disconnectClient`
-- [ ] Backend DI-модуль: store, service, `RpcConnectionHandler`
-- [ ] **Готово:** сервис дергается из тестов с фейковым client
+- [x] `NotificationStore`: FIFO, лимит 100, `getAll` / `push` / `clear`
+- [x] `NotificationServiceImpl`: `id` + `timestamp`, `onNotification`, `getHistory`, `clearHistory`, `actionInvoked`, `setClient` / `disconnectClient`
+- [x] Backend DI-модуль: store, service, `RpcConnectionHandler`
+- [x] **Готово:** сервис дергается из тестов с фейковым client
 
 ## Этап 3. Unit-тесты (Jest)
 
