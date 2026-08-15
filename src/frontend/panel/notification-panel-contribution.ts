@@ -1,9 +1,9 @@
 import { CommandRegistry } from '@theia/core';
 import { AbstractViewContribution, FrontendApplicationContribution } from '@theia/core/lib/browser';
 import { inject, injectable } from '@theia/core/shared/inversify';
-import { NotificationService } from '../shared';
-import { NotificationClientImpl } from './notification-client';
-import { NotificationCenterCommands } from './notification-frontend-contribution';
+import { NotificationService } from '../../shared';
+import { NotificationClientImpl } from '../client/notification-client';
+import { NotificationCenterCommands } from '../commands/notification-frontend-contribution';
 import { NotificationPanelWidget } from './notification-panel-widget';
 
 @injectable()

@@ -1,7 +1,7 @@
 import { ILogger } from '@theia/core';
-import { NotificationClient, NotificationInput } from '../shared';
+import { NotificationClient, NotificationInput } from '../../shared';
 import { NotificationServiceImpl } from './notification-service';
-import { NotificationStore } from './notification-store';
+import { NotificationStore } from '../store/notification-store';
 
 const sampleInput: NotificationInput = {
     severity: 'warning',

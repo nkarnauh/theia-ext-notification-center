@@ -1,8 +1,8 @@
 import { Message, ReactWidget } from '@theia/core/lib/browser';
 import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
 import { type ReactNode } from '@theia/core/shared/react';
-import { NotificationService } from '../shared';
-import { NotificationClientImpl } from './notification-client';
+import { NotificationService } from '../../shared';
+import { NotificationClientImpl } from '../client/notification-client';
 import { NotificationPanelView } from './notification-panel-view';
 
 @injectable()

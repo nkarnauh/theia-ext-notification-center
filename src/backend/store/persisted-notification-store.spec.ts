@@ -4,7 +4,7 @@ import { FileUri } from '@theia/core/lib/common/file-uri';
 import { mkdir, mkdtemp, readFile, rm, writeFile } from 'fs/promises';
 import { tmpdir } from 'os';
 import { join } from 'path';
-import { Notification } from '../shared';
+import { Notification } from '../../shared';
 import { PersistedNotificationStore } from './persisted-notification-store';
 
 function sample(id: string, timestamp = Number(id)): Notification {

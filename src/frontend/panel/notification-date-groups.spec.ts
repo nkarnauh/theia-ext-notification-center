@@ -1,4 +1,4 @@
-import { Notification } from '../shared';
+import { Notification } from '../../shared';
 import { groupNotifications, notificationDateGroup } from './notification-date-groups';
 
 function sample(id: string, timestamp: number): Notification {

@@ -5,7 +5,7 @@ import { BackendApplicationContribution } from '@theia/core/lib/node';
 import { inject, injectable } from '@theia/core/shared/inversify';
 import { mkdir, readFile, rename, writeFile } from 'fs/promises';
 import { dirname, join } from 'path';
-import { Notification } from '../shared';
+import { Notification } from '../../shared';
 import { NotificationStore } from './notification-store';
 
 @injectable()

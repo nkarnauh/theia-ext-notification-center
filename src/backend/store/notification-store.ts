@@ -1,5 +1,5 @@
 import { injectable } from '@theia/core/shared/inversify';
-import { Notification } from '../shared';
+import { Notification } from '../../shared';
 
 @injectable()
 export class NotificationStore {

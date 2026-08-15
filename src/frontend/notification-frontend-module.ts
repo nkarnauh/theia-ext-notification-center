@@ -11,11 +11,11 @@ import {
     NotificationClient,
     NotificationService
 } from '../shared';
-import { NotificationClientImpl } from './notification-client';
-import { NotificationFrontendContribution } from './notification-frontend-contribution';
-import { NotificationPanelContribution } from './notification-panel-contribution';
-import { NotificationPanelWidget } from './notification-panel-widget';
-import { NotificationToastService } from './notification-toast-service';
+import { NotificationClientImpl } from './client/notification-client';
+import { NotificationFrontendContribution } from './commands/notification-frontend-contribution';
+import { NotificationPanelContribution } from './panel/notification-panel-contribution';
+import { NotificationPanelWidget } from './panel/notification-panel-widget';
+import { NotificationToastService } from './toast/notification-toast-service';
 import '../../src/frontend/style/index.css';
 
 export default new ContainerModule(bind => {

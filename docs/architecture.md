@@ -95,15 +95,28 @@ theia-ext-notification-center/
 │   │   ├── notification-types.ts       # Notification, Severity, Action
 │   │   └── index.ts
 │   ├── backend/                        # Node.js
-│   │   ├── notification-store.ts
-│   │   ├── notification-service.ts
-│   │   └── notification-backend-module.ts
+│   │   ├── notification-backend-module.ts
+│   │   ├── store/
+│   │   │   ├── notification-store.ts
+│   │   │   └── persisted-notification-store.ts
+│   │   └── service/
+│   │       └── notification-service.ts
 │   └── frontend/                       # Browser
-│       ├── notification-client.ts
-│       ├── notification-toast-service.ts
-│       ├── notification-panel-widget.tsx
-│       ├── notification-frontend-contribution.ts
-│       └── notification-frontend-module.ts
+│       ├── notification-frontend-module.ts
+│       ├── client/
+│       │   └── notification-client.ts
+│       ├── commands/
+│       │   └── notification-frontend-contribution.ts
+│       ├── toast/
+│       │   ├── notification-toast-service.tsx
+│       │   └── notification-toast-overlay.tsx
+│       ├── panel/
+│       │   ├── notification-panel-widget.tsx
+│       │   ├── notification-panel-view.tsx
+│       │   ├── notification-panel-contribution.ts
+│       │   └── notification-date-groups.ts
+│       └── style/
+│           └── index.css
 ├── browser-app/                        # локальный Theia-хост, не входит в релиз
 │   └── package.json
 ├── e2e/                                # Playwright, нужен запущенный Theia

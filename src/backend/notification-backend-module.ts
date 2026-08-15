@@ -6,9 +6,9 @@ import {
     NotificationClient,
     NotificationService
 } from '../shared';
-import { NotificationServiceImpl } from './notification-service';
-import { NotificationStore } from './notification-store';
-import { PersistedNotificationStore } from './persisted-notification-store';
+import { NotificationServiceImpl } from './service/notification-service';
+import { NotificationStore } from './store/notification-store';
+import { PersistedNotificationStore } from './store/persisted-notification-store';
 
 export default new ContainerModule(bind => {
     bind(PersistedNotificationStore).toSelf().inSingletonScope();

@@ -1,4 +1,4 @@
-import { Notification } from '../shared';
+import { Notification } from '../../shared';
 import { NotificationStore } from './notification-store';
 
 function sample(id: string): Notification {

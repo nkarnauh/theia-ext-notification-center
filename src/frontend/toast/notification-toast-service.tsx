@@ -2,8 +2,8 @@ import { Disposable, DisposableCollection } from '@theia/core';
 import { FrontendApplicationContribution } from '@theia/core/lib/browser';
 import { createRoot, Root } from '@theia/core/shared/react-dom/client';
 import { inject, injectable } from '@theia/core/shared/inversify';
-import { Notification, NotificationService } from '../shared';
-import { NotificationClientImpl } from './notification-client';
+import { Notification, NotificationService } from '../../shared';
+import { NotificationClientImpl } from '../client/notification-client';
 import { NotificationToastOverlay } from './notification-toast-overlay';
 
 @injectable()

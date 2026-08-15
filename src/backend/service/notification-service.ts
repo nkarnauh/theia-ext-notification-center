@@ -5,8 +5,8 @@ import {
     NotificationClient,
     NotificationInput,
     NotificationService
-} from '../shared';
-import { NotificationStore } from './notification-store';
+} from '../../shared';
+import { NotificationStore } from '../store/notification-store';
 
 @injectable()
 export class NotificationServiceImpl implements NotificationService {

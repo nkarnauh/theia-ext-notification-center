@@ -1,6 +1,6 @@
 import { useEffect, useState, type FC } from '@theia/core/shared/react';
-import { Notification, NotificationService, NotificationSeverity } from '../shared';
-import { NotificationClientImpl } from './notification-client';
+import { Notification, NotificationService, NotificationSeverity } from '../../shared';
+import { NotificationClientImpl } from '../client/notification-client';
 import { groupNotifications, NOTIFICATION_DATE_GROUP_LABELS } from './notification-date-groups';
 
 export const NOTIFICATION_SEVERITIES: NotificationSeverity[] = ['info', 'warning', 'error'];

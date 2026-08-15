@@ -1,8 +1,8 @@
 import { Command, CommandContribution, CommandRegistry, ILogger } from '@theia/core';
 import { FrontendApplicationContribution } from '@theia/core/lib/browser';
 import { inject, injectable } from '@theia/core/shared/inversify';
-import { NotificationService } from '../shared';
-import { NotificationClientImpl } from './notification-client';
+import { NotificationService } from '../../shared';
+import { NotificationClientImpl } from '../client/notification-client';
 
 export const NOTIFICATION_CENTER_CATEGORY = 'Notifications';
 

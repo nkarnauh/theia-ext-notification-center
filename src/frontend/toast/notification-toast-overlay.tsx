@@ -1,5 +1,5 @@
 import { useEffect, useState, type FC } from '@theia/core/shared/react';
-import { Notification } from '../shared';
+import { Notification } from '../../shared';
 
 export const TOAST_AUTO_HIDE_MS = 5_000;
 export const TOAST_EXIT_MS = 180;

@@ -1,4 +1,4 @@
-import { Notification } from '../shared';
+import { Notification } from '../../shared';
 
 export type NotificationDateGroup = 'today' | 'yesterday' | 'earlier';
 
