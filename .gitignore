@@ -164,3 +164,5 @@ browser-app/gen-esbuild*.mjs
 test-results/
 playwright-report/
 playwright/.cache/
+
+.idea
