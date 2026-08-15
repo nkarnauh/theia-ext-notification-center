@@ -1,5 +1,7 @@
 # Notification Center
 
+[![CI](https://github.com/nkarnauh/theia-ext-notification-center/actions/workflows/ci.yml/badge.svg)](https://github.com/nkarnauh/theia-ext-notification-center/actions/workflows/ci.yml)
+
 Theia-расширение: backend публикует типизированные уведомления, frontend показывает toast и ведёт историю в боковой панели.
 
 ## Документация
@@ -44,10 +46,12 @@ npm run test:e2e
 
 ## Установка
 
-Готовые сборки появятся в [GitHub Releases](https://github.com/nkarnauh/theia-ext-notification-center/releases) после этапа CI/CD: tarball `.tgz`, его ставят в Theia-приложение как npm-зависимость.
+Скачайте tarball с [GitHub Releases](https://github.com/nkarnauh/theia-ext-notification-center/releases) и поставьте в Theia-приложение:
 
 ```bash
 npm install ./theia-ext-notification-center-<version>.tgz
 ```
+
+Релиз создаётся тегом `vX.Y.Z`, который должен совпадать с `version` в `package.json`. На каждый PR GitHub Actions гоняет lint, Jest и Playwright e2e.
 
 Пока релиза нет — собирать из исходников по [плану](docs/plan.md).

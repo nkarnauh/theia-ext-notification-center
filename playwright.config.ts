@@ -4,6 +4,7 @@ export default defineConfig({
     testDir: './e2e',
     testMatch: '**/*.spec.ts',
     fullyParallel: false,
+    forbidOnly: Boolean(process.env.CI),
     workers: 1,
     retries: process.env.CI ? 1 : 0,
     timeout: 90_000,
@@ -20,6 +21,6 @@ export default defineConfig({
         command: 'npm run start:browser',
         url: 'http://localhost:3000',
         reuseExistingServer: !process.env.CI,
-        timeout: 120_000
+        timeout: 180_000
     }
 });

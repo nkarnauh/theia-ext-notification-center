@@ -4,7 +4,7 @@
 
 Как трекать: `[ ]` → `[x]`. Этап закрыт, когда отмечен его блок **Готово**.
 
-**Сейчас:** этап 7 (плюсы, по желанию) или этап 8 (CI/CD).
+**Сейчас:** этап 7 (плюсы, по желанию). Этап 8 готов в репозитории; зелёный CI подтвердится после пуша.
 
 ## Этап 0. Каркас расширения
 
@@ -77,11 +77,11 @@
 
 ## Этап 8. CI/CD и GitHub Releases
 
-- [ ] `.github/workflows/ci.yml`: PR и `main`, Node 22, job `unit` (lint, compile, Jest)
-- [ ] Тот же workflow: job `e2e` (`playwright install --with-deps chromium`, `build:browser`, `test:e2e`)
-- [ ] Артефакт `test-results/` при падении e2e
-- [ ] `.github/workflows/release.yml`: тег `v*` → `unit` + `e2e`, затем pack + GitHub Release с `.tgz`
-- [ ] `contents: write` только у release-job
-- [ ] Версия тега `vX.Y.Z` совпадает с `package.json`
-- [ ] В `readme.md`: ссылка на Releases и установка tarball
+- [x] `.github/workflows/ci.yml`: PR и `main`, Node 22, job `unit` (lint, compile, Jest)
+- [x] Тот же workflow: job `e2e` (`playwright install --with-deps chromium`, `build:browser`, `test:e2e`)
+- [x] Артефакт `test-results/` при падении e2e
+- [x] `.github/workflows/release.yml`: тег `v*` → `unit` + `e2e`, затем pack + GitHub Release с `.tgz`
+- [x] `contents: write` только у release-job
+- [x] Версия тега `vX.Y.Z` совпадает с `package.json`
+- [x] В `readme.md`: ссылка на Releases и установка tarball
 - [ ] **Готово:** CI зелёный на PR (unit и e2e); тег создаёт скачиваемый Release
