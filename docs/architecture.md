@@ -104,6 +104,8 @@ theia-ext-notification-center/
 │       ├── notification-panel-widget.tsx
 │       ├── notification-frontend-contribution.ts
 │       └── notification-frontend-module.ts
+├── browser-app/                        # локальный Theia-хост, не входит в релиз
+│   └── package.json
 ├── e2e/                                # Playwright, нужен запущенный Theia
 │   ├── page-objects/
 │   │   ├── notification-toast.ts

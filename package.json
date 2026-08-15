@@ -1,0 +1,54 @@
+{
+  "name": "theia-ext-notification-center",
+  "version": "0.1.0",
+  "description": "Theia extension: typed notifications, toast overlay, and history panel",
+  "keywords": [
+    "theia-extension"
+  ],
+  "license": "EPL-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nkarnauh/theia-ext-notification-center.git"
+  },
+  "files": [
+    "lib",
+    "src"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@theia/core": "1.74.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.13.10",
+    "@types/react": "^18.3.18",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "eslint": "^8.57.1",
+    "jest": "^29.7.0",
+    "rimraf": "^5.0.10",
+    "ts-jest": "^29.2.6",
+    "typescript": "~5.4.5"
+  },
+  "scripts": {
+    "prepare": "npm run compile",
+    "clean": "rimraf lib",
+    "compile": "tsc",
+    "watch": "tsc -w",
+    "lint": "eslint src --ext .ts,.tsx",
+    "test": "jest --passWithNoTests",
+    "build:browser": "npm run compile && npm --prefix browser-app run bundle",
+    "start:browser": "npm --prefix browser-app start"
+  },
+  "theiaExtensions": [
+    {
+      "frontend": "lib/frontend/notification-frontend-module",
+      "backend": "lib/backend/notification-backend-module"
+    }
+  ],
+  "workspaces": [
+    "browser-app"
+  ]
+}

@@ -11,11 +11,26 @@ Theia-расширение: backend публикует типизированн�
 | [docs/plan.md](docs/plan.md) | Этапы реализации |
 | [docs/todo.md](docs/todo.md) | Чеклист прогресса |
 
+Статус — в [todo.md](docs/todo.md).
+
 ## Стек
 
 TypeScript, Eclipse Theia, InversifyJS, React, Jest, Playwright, GitHub Actions.
 
 Подробности — в [архитектуре](docs/architecture.md).
+
+## Разработка
+
+```bash
+npm install
+npm run compile
+npm run lint
+npm test
+npm run build:browser
+npm run start:browser
+```
+
+Хост: http://localhost:3000. `browser-app/` — локальное Theia-приложение, в релиз не входит.
 
 ## Установка
 

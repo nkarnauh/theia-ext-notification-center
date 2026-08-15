@@ -4,17 +4,17 @@
 
 Как трекать: `[ ]` → `[x]`. Этап закрыт, когда отмечен его блок **Готово**.
 
-**Сейчас:** этап 0.
+**Сейчас:** этап 1.
 
 ## Этап 0. Каркас расширения
 
-- [ ] `package.json`: `@theia/core`, `theiaExtensions` на frontend/backend-модули
-- [ ] `tsconfig.json` (strict)
-- [ ] Пустые DI-модули `src/backend` и `src/frontend`
-- [ ] Каталоги `src/shared`, `src/backend`, `src/frontend`
-- [ ] ESLint
-- [ ] Jest: конфиг и скрипт `test` для `src/**/*.spec.ts`
-- [ ] **Готово:** `npm run compile` проходит, Theia-хост поднимается с пустым расширением
+- [x] `package.json`: `@theia/core`, `theiaExtensions` на frontend/backend-модули
+- [x] `tsconfig.json` (strict)
+- [x] Пустые DI-модули `src/backend` и `src/frontend`
+- [x] Каталоги `src/shared`, `src/backend`, `src/frontend`
+- [x] ESLint
+- [x] Jest: конфиг и скрипт `test` для `src/**/*.spec.ts`
+- [x] **Готово:** `npm run compile` проходит, Theia-хост поднимается с пустым расширением
 
 ## Этап 1. Shared-контракт
 

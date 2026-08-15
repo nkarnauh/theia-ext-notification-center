@@ -146,3 +146,16 @@ psd
 thumb
 sketch
 
+# Theia extension build
+lib/
+*.tsbuildinfo
+
+# Theia host app generated files
+browser-app/lib/
+browser-app/src-gen/
+browser-app/gen-webpack/
+browser-app/gen-webpack.node/
+browser-app/esbuild.mjs
+browser-app/esbuild.config.mjs
+.browser_modules/
+browser-app/gen-esbuild*.mjs
